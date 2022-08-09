@@ -32,10 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bernardomg.example.domain.model.ExampleEntity;
 import com.bernardomg.example.domain.service.DefaultExampleEntityService;
-import com.bernardomg.example.pagination.model.DisabledPagination;
 import com.bernardomg.example.pagination.model.DisabledSort;
-import com.bernardomg.example.pagination.model.PageIterable;
-import com.bernardomg.example.pagination.model.Pagination;
 import com.bernardomg.example.pagination.model.Sort;
 import com.bernardomg.example.test.config.annotation.IntegrationTest;
 
@@ -53,14 +50,12 @@ public class ITDefaultExampleEntityService {
     @Test
     @DisplayName("Returns all the entities")
     public void testGetAllEntities() {
-        final Pagination                            pagination;
         final Sort                                  sort;
-        final PageIterable<? extends ExampleEntity> result;
+        final Iterable<? extends ExampleEntity> result;
 
-        pagination = new DisabledPagination();
         sort = new DisabledSort();
 
-        result = service.getAllEntities(pagination, sort);
+        result = service.getAllEntities(sort);
 
         Assertions.assertEquals(30, IterableUtils.size(result));
     }

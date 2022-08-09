@@ -26,7 +26,7 @@ package com.bernardomg.example.test.config;
 
 /**
  * Contains configuration information for the controller URLs.
- * 
+ *
  * @author Bernardo Mart&iacute;nez Garrido
  */
 public final class UrlConfig {

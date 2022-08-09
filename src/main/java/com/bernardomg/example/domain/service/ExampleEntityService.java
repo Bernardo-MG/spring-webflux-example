@@ -25,8 +25,6 @@
 package com.bernardomg.example.domain.service;
 
 import com.bernardomg.example.domain.model.ExampleEntity;
-import com.bernardomg.example.pagination.model.PageIterable;
-import com.bernardomg.example.pagination.model.Pagination;
 import com.bernardomg.example.pagination.model.Sort;
 
 /**
@@ -41,12 +39,11 @@ public interface ExampleEntityService {
 
     /**
      * Returns all the entities from the DB.
-     * 
-     * @param pagination requested page info
+     *
      * @param sort requested sort info
      * @return the persisted entities
      */
-    public PageIterable<? extends ExampleEntity> getAllEntities(final Pagination pagination,
+    public Iterable<? extends ExampleEntity> getAllEntities(
             final Sort sort);
 
 }

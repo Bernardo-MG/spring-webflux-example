@@ -28,7 +28,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 
-import com.bernardomg.example.pagination.argument.PaginationArgumentResolver;
 import com.bernardomg.example.pagination.argument.SortArgumentResolver;
 
 /**
@@ -45,11 +44,6 @@ public class RequestConfig {
      */
     public RequestConfig() {
         super();
-    }
-
-    @Bean("paginationArgumentResolver")
-    public HandlerMethodArgumentResolver getPaginationArgumentResolver() {
-        return new PaginationArgumentResolver();
     }
 
     @Bean("sortArgumentResolver")

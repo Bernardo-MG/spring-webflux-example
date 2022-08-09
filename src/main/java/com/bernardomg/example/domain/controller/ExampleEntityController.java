@@ -32,7 +32,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bernardomg.example.domain.model.ExampleEntity;
 import com.bernardomg.example.domain.service.ExampleEntityService;
-import com.bernardomg.example.pagination.model.Pagination;
 import com.bernardomg.example.pagination.model.Sort;
 
 /**
@@ -65,16 +64,14 @@ public class ExampleEntityController {
     /**
      * Returns a collection of entities.
      *
-     * @param pagination
-     *            pagination request
      * @param sort
      *            sorting request
      * @return a collection of entities
      */
     @GetMapping
-    public Iterable<? extends ExampleEntity> read(final Pagination pagination,
+    public Iterable<? extends ExampleEntity> read(
             final Sort sort) {
-        return exampleEntityService.getAllEntities(pagination, sort);
+        return exampleEntityService.getAllEntities(sort);
     }
 
 }

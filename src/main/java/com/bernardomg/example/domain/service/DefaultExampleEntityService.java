@@ -27,14 +27,11 @@ package com.bernardomg.example.domain.service;
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.bernardomg.example.domain.model.PersistentExampleEntity;
 import com.bernardomg.example.domain.repository.ExampleEntityRepository;
-import com.bernardomg.example.pagination.model.PageIterable;
-import com.bernardomg.example.pagination.model.Pagination;
 import com.bernardomg.example.pagination.model.Sort;
 import com.bernardomg.example.pagination.utils.Paginations;
 
@@ -68,16 +65,13 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final PageIterable<PersistentExampleEntity>
-            getAllEntities(final Pagination pagination, final Sort sort) {
+    public final Iterable<PersistentExampleEntity>
+            getAllEntities(final Sort sort) {
         final Pageable pageable;
-        final Page<PersistentExampleEntity> page;
 
-        pageable = Paginations.toSpring(pagination, sort);
+        pageable = Paginations.toSpring( sort);
 
-        page = repository.findAll(pageable);
-
-        return Paginations.fromSpring(page);
+        return repository.findAll(pageable);
     }
 
 }
