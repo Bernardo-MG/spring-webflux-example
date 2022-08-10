@@ -24,16 +24,14 @@
 
 package com.bernardomg.example.domain.service;
 
-import java.util.Objects;
+import java.util.Arrays;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.bernardomg.example.domain.model.PersistentExampleEntity;
-import com.bernardomg.example.domain.repository.ExampleEntityRepository;
-import com.bernardomg.example.pagination.model.Sort;
-import com.bernardomg.example.pagination.utils.Paginations;
+import com.bernardomg.example.domain.model.DefaultExampleEntity;
+import com.bernardomg.example.domain.model.ExampleEntity;
+
+import reactor.core.publisher.Flux;
 
 /**
  * Default implementation of the example entity service.
@@ -44,34 +42,33 @@ import com.bernardomg.example.pagination.utils.Paginations;
 @Service
 public class DefaultExampleEntityService implements ExampleEntityService {
 
-    /**
-     * Repository for the domain entities handled by the service.
-     */
-    private final ExampleEntityRepository repository;
 
     /**
      * Constructs an entities service with the specified repository.
-     *
-     * @param repo
-     *            the repository for the entity instances
      */
-    @Autowired
-    public DefaultExampleEntityService(
-            final ExampleEntityRepository repo) {
+    public DefaultExampleEntityService() {
         super();
-
-        repository = Objects.requireNonNull(repo,
-            "Received a null pointer as repository");
     }
 
     @Override
-    public final Iterable<PersistentExampleEntity>
-            getAllEntities(final Sort sort) {
-        final Pageable pageable;
+    public final Flux<ExampleEntity>
+            getAllEntities() {
+		final ExampleEntity entity1;
+		final ExampleEntity entity2;
+		final ExampleEntity entity3;
 
-        pageable = Paginations.toSpring( sort);
+		entity1 = new DefaultExampleEntity();
+		entity1.setId(1);
+		entity1.setName("Entity 1");
 
-        return repository.findAll(pageable);
-    }
+		entity2 = new DefaultExampleEntity();
+		entity2.setId(2);
+		entity2.setName("Entity 2");
+
+		entity3 = new DefaultExampleEntity();
+		entity3.setId(3);
+		entity3.setName("Entity 3");
+
+		return Flux.fromIterable(Arrays.asList(entity1, entity2, entity3));}
 
 }

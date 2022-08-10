@@ -25,7 +25,8 @@
 package com.bernardomg.example.domain.service;
 
 import com.bernardomg.example.domain.model.ExampleEntity;
-import com.bernardomg.example.pagination.model.Sort;
+
+import reactor.core.publisher.Flux;
 
 /**
  * Service for the example entity domain.
@@ -40,10 +41,8 @@ public interface ExampleEntityService {
     /**
      * Returns all the entities from the DB.
      *
-     * @param sort requested sort info
      * @return the persisted entities
      */
-    public Iterable<? extends ExampleEntity> getAllEntities(
-            final Sort sort);
+    public Flux<? extends ExampleEntity> getAllEntities();
 
 }

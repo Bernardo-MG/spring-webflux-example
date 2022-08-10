@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
    <modelVersion>4.0.0</modelVersion>
 
@@ -177,24 +176,10 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <bytebuddy.version>1.12.10</bytebuddy.version>
       <caffeine.version>2.6.2</caffeine.version>
-      <h2.version>2.1.214</h2.version>
-      <hibernate.validator.version>5.4.3.Final</hibernate.validator.version>
-      <hibernate.ehcache.version>5.6.10.Final</hibernate.ehcache.version>
-      <hibernate.version>5.6.10.Final</hibernate.version>
       <hikari.version>5.0.1</hikari.version>
-      <hamcrest.version>2.2</hamcrest.version>
       <jackson.version>2.13.3</jackson.version>
-      <jpa.version>2.2</jpa.version>
-      <jsonpath.version>2.7.0</jsonpath.version>
       <junit.jupiter.version>5.9.0</junit.jupiter.version>
-      <liquibase.version>4.12.0</liquibase.version>
-      <log4j.version>2.18.0</log4j.version>
-      <lombok.version>1.18.24</lombok.version>
-      <mockito.version>4.6.1</mockito.version>
-      <servlet.version>4.0.1</servlet.version>
-      <slf4j.version>1.7.36</slf4j.version>
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.data.version>2021.2.2</spring.data.version>
       <spring.version>5.3.22</spring.version>
@@ -214,7 +199,9 @@
       <!-- ============================================== -->
       <site.skin.version>2.2.6</site.skin.version>
       <mavenURL>http://mvnrepository.com/artifact/${project.groupId}/${project.artifactId}</mavenURL>
-      <githubArtifactURL><![CDATA[https://github.com/bernardo-mg?tab=packages&amp;repo_name={project.artifactId}]]></githubArtifactURL>
+      <githubArtifactURL>
+         <![CDATA[https://github.com/bernardo-mg?tab=packages&amp;repo_name={project.artifactId}]]>
+      </githubArtifactURL>
    </properties>
 
    <!-- ********************************************** -->
@@ -228,6 +215,14 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-framework-bom</artifactId>
             <version>${spring.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+         </dependency>
+         <dependency>
+            <!-- Spring Boot BOM -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
@@ -260,173 +255,46 @@
 
    <dependencies>
       <!-- ============================================== -->
-      <!-- ================== SPRING ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Spring AOP -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-aop</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring beans -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-beans</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring context -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-context</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring context support -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-context-support</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring Core -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-core</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring JDBC -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-jdbc</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring Data JPA -->
-         <groupId>org.springframework.data</groupId>
-         <artifactId>spring-data-jpa</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring transactions -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-tx</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring Web -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-web</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Spring ORM -->
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-orm</artifactId>
-      </dependency>
-      <!-- ============================================== -->
       <!-- =============== SPRING BOOT ================== -->
       <!-- ============================================== -->
       <dependency>
-         <!-- Spring Boot Starter: Web -->
+         <!-- Spring Boot Starter: Web Flux -->
          <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-web</artifactId>
-         <version>${spring.boot.version}</version>
-         <exclusions>
-            <exclusion>
-               <groupId>ch.qos.logback</groupId>
-               <artifactId>logback-classic</artifactId>
-            </exclusion>
-            <exclusion>
-               <groupId>org.apache.logging.log4j</groupId>
-               <artifactId>log4j-to-slf4j</artifactId>
-            </exclusion>
-         </exclusions>
+         <artifactId>spring-boot-starter-webflux</artifactId>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: AOP -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-aop</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: Cache -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-cache</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: log4j -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-log4j2</artifactId>
-         <version>${spring.boot.version}</version>
       </dependency>
       <dependency>
          <!-- Spring Boot Starter: Devtools -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-devtools</artifactId>
-         <version>${spring.boot.version}</version>
          <scope>runtime</scope>
          <optional>true</optional>
       </dependency>
       <!-- ============================================== -->
-      <!-- ============== JPA DEPENDENCIES ============== -->
+      <!-- ================= REACTIVE =================== -->
       <!-- ============================================== -->
       <dependency>
-         <!-- JPA API -->
-         <groupId>javax.persistence</groupId>
-         <artifactId>javax.persistence-api</artifactId>
-         <version>${jpa.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ HIBERNATE =================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Hibernate Core -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-core</artifactId>
-         <version>${hibernate.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Hibernate Ehcache -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-ehcache</artifactId>
-         <version>${hibernate.ehcache.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Hibernate validator -->
-         <groupId>org.hibernate</groupId>
-         <artifactId>hibernate-validator</artifactId>
-         <version>${hibernate.validator.version}</version>
-      </dependency>
-      <dependency>
-         <!-- Hikari CP -->
-         <groupId>com.zaxxer</groupId>
-         <artifactId>HikariCP</artifactId>
-         <version>${hikari.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ==================== H2 ====================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- H2 database -->
-         <groupId>com.h2database</groupId>
-         <artifactId>h2</artifactId>
-         <version>${h2.version}</version>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ LIQUIBASE =================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Liquibase -->
-         <groupId>org.liquibase</groupId>
-         <artifactId>liquibase-core</artifactId>
-         <version>${liquibase.version}</version>
-         <exclusions>
-            <exclusion>
-               <groupId>ch.qos.logback</groupId>
-               <artifactId>logback-classic</artifactId>
-            </exclusion>
-         </exclusions>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ SERVLET ===================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Servlet API -->
-         <groupId>javax.servlet</groupId>
-         <artifactId>javax.servlet-api</artifactId>
-         <version>${servlet.version}</version>
-         <scope>provided</scope>
-      </dependency>
+            <groupId>io.reactivex.rxjava2</groupId>
+            <artifactId>rxjava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor.kafka</groupId>
+            <artifactId>reactor-kafka</artifactId>
+        </dependency>
       <!-- ============================================== -->
       <!-- ================== LOMBOK ==================== -->
       <!-- ============================================== -->
@@ -434,7 +302,6 @@
          <!-- Lombok -->
          <groupId>org.projectlombok</groupId>
          <artifactId>lombok</artifactId>
-         <version>${lombok.version}</version>
          <scope>provided</scope>
       </dependency>
       <!-- ============================================== -->
@@ -444,31 +311,26 @@
          <!-- SL4J API -->
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j SLF4J Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-slf4j-impl</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j core -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-core</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j Commons Logging Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-jcl</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <dependency>
          <!-- Log4j Web -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-web</artifactId>
-         <version>${log4j.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================= JACKSON ==================== -->
@@ -497,31 +359,8 @@
          <version>${springdoc.version}</version>
       </dependency>
       <!-- ============================================== -->
-      <!-- =========== VERSION ENFORCEMENT ============== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Byte Buddy -->
-         <groupId>net.bytebuddy</groupId>
-         <artifactId>byte-buddy</artifactId>
-         <version>${bytebuddy.version}</version>
-      </dependency>
-      <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
       <!-- ============================================== -->
-      <dependency>
-         <!-- Hamcrest -->
-         <groupId>org.hamcrest</groupId>
-         <artifactId>hamcrest-core</artifactId>
-         <version>${hamcrest.version}</version>
-         <scope>test</scope>
-      </dependency>
-      <dependency>
-         <!-- JSON Path -->
-         <groupId>com.jayway.jsonpath</groupId>
-         <artifactId>json-path</artifactId>
-         <version>${jsonpath.version}</version>
-         <scope>test</scope>
-      </dependency>
       <dependency>
          <!-- JUnit Jupiter Engine -->
          <groupId>org.junit.jupiter</groupId>
@@ -545,7 +384,6 @@
          <!-- Mockito -->
          <groupId>org.mockito</groupId>
          <artifactId>mockito-core</artifactId>
-         <version>${mockito.version}</version>
          <scope>test</scope>
       </dependency>
       <dependency>
@@ -558,7 +396,6 @@
          <!-- Spring Boot Starter: Test -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-test</artifactId>
-         <version>${spring.boot.version}</version>
          <scope>test</scope>
          <exclusions>
             <exclusion>

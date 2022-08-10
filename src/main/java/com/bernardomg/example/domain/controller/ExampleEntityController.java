@@ -32,7 +32,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bernardomg.example.domain.model.ExampleEntity;
 import com.bernardomg.example.domain.service.ExampleEntityService;
-import com.bernardomg.example.pagination.model.Sort;
+
+import reactor.core.publisher.Flux;
 
 /**
  * Rest controller for the example entities.
@@ -43,35 +44,25 @@ import com.bernardomg.example.pagination.model.Sort;
 @RequestMapping("/entity")
 public class ExampleEntityController {
 
-    /**
-     * Example entity service.
-     */
-    private final ExampleEntityService exampleEntityService;
+	/**
+	 * Example entity service.
+	 */
+	private final ExampleEntityService exampleEntityService;
 
-    /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param service
-     *            example entity service
-     */
-    public ExampleEntityController(final ExampleEntityService service) {
-        super();
+	/**
+	 * Constructs a controller with the specified dependencies.
+	 *
+	 * @param service example entity service
+	 */
+	public ExampleEntityController(final ExampleEntityService service) {
+		super();
 
-        exampleEntityService = Objects.requireNonNull(service,
-            "Received a null pointer as service");
-    }
+		exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
+	}
 
-    /**
-     * Returns a collection of entities.
-     *
-     * @param sort
-     *            sorting request
-     * @return a collection of entities
-     */
-    @GetMapping
-    public Iterable<? extends ExampleEntity> read(
-            final Sort sort) {
-        return exampleEntityService.getAllEntities(sort);
-    }
+	@GetMapping
+	public Flux<? extends ExampleEntity> read() {
+        return exampleEntityService.getAllEntities();
+	}
 
 }
