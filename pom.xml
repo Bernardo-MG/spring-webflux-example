@@ -178,7 +178,6 @@
       <!-- ============================================== -->
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.version>5.3.22</spring.version>
-      <springdoc.version>1.6.9</springdoc.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -256,17 +255,6 @@
          <optional>true</optional>
       </dependency>
       <!-- ============================================== -->
-      <!-- ================= REACTIVE =================== -->
-      <!-- ============================================== -->
-      <dependency>
-            <groupId>io.reactivex.rxjava2</groupId>
-            <artifactId>rxjava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor.kafka</groupId>
-            <artifactId>reactor-kafka</artifactId>
-        </dependency>
-      <!-- ============================================== -->
       <!-- ================== LOMBOK ==================== -->
       <!-- ============================================== -->
       <dependency>
@@ -302,32 +290,6 @@
          <!-- Log4j Web -->
          <groupId>org.apache.logging.log4j</groupId>
          <artifactId>log4j-web</artifactId>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================= JACKSON ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Jackson -->
-         <groupId>com.fasterxml.jackson.core</groupId>
-         <artifactId>jackson-core</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Jackson databinding -->
-         <groupId>com.fasterxml.jackson.core</groupId>
-         <artifactId>jackson-databind</artifactId>
-      </dependency>
-      <dependency>
-         <!-- Jackson annotations -->
-         <groupId>com.fasterxml.jackson.core</groupId>
-         <artifactId>jackson-annotations</artifactId>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ API DOCS ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <groupId>org.springdoc</groupId>
-         <artifactId>springdoc-openapi-ui</artifactId>
-         <version>${springdoc.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ======= TEST ENVIRONMENT DEPENDENCIES ======== -->
