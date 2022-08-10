@@ -222,14 +222,6 @@
             <type>pom</type>
             <scope>import</scope>
          </dependency>
-         <dependency>
-            <!-- Spring Data BOM -->
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-bom</artifactId>
-            <version>${spring.data.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
       </dependencies>
    </dependencyManagement>
 
