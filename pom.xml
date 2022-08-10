@@ -176,10 +176,6 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <caffeine.version>2.6.2</caffeine.version>
-      <hikari.version>5.0.1</hikari.version>
-      <jackson.version>2.13.3</jackson.version>
-      <junit.jupiter.version>5.9.0</junit.jupiter.version>
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.data.version>2021.2.2</spring.data.version>
       <spring.version>5.3.22</spring.version>
@@ -231,22 +227,6 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-bom</artifactId>
             <version>${spring.data.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
-         <dependency>
-            <!-- Jackson BOM -->
-            <groupId>com.fasterxml.jackson</groupId>
-            <artifactId>jackson-bom</artifactId>
-            <version>${jackson.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-         </dependency>
-         <dependency>
-            <!-- JUnit BOM -->
-            <groupId>org.junit</groupId>
-            <artifactId>junit-bom</artifactId>
-            <version>${junit.jupiter.version}</version>
             <type>pom</type>
             <scope>import</scope>
          </dependency>
