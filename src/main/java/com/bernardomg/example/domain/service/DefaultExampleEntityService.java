@@ -42,7 +42,6 @@ import reactor.core.publisher.Flux;
 @Service
 public class DefaultExampleEntityService implements ExampleEntityService {
 
-
     /**
      * Constructs an entities service with the specified repository.
      */
@@ -51,24 +50,24 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Flux<ExampleEntity>
-            getAllEntities() {
-		final ExampleEntity entity1;
-		final ExampleEntity entity2;
-		final ExampleEntity entity3;
+    public final Flux<ExampleEntity> getAllEntities() {
+        final ExampleEntity entity1;
+        final ExampleEntity entity2;
+        final ExampleEntity entity3;
 
-		entity1 = new DefaultExampleEntity();
-		entity1.setId(1);
-		entity1.setName("Entity 1");
+        entity1 = new DefaultExampleEntity();
+        entity1.setId(1);
+        entity1.setName("Entity 1");
 
-		entity2 = new DefaultExampleEntity();
-		entity2.setId(2);
-		entity2.setName("Entity 2");
+        entity2 = new DefaultExampleEntity();
+        entity2.setId(2);
+        entity2.setName("Entity 2");
 
-		entity3 = new DefaultExampleEntity();
-		entity3.setId(3);
-		entity3.setName("Entity 3");
+        entity3 = new DefaultExampleEntity();
+        entity3.setId(3);
+        entity3.setName("Entity 3");
 
-		return Flux.fromIterable(Arrays.asList(entity1, entity2, entity3));}
+        return Flux.fromIterable(Arrays.asList(entity1, entity2, entity3));
+    }
 
 }

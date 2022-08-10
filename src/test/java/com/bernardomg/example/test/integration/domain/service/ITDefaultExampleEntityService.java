@@ -45,14 +45,14 @@ public class ITDefaultExampleEntityService {
     @Test
     @DisplayName("Returns all the entities")
     public void testGetAllEntities() {
-//        final Sort                                  sort;
-//        final Flux<PersistentExampleEntity> result;
-//
-//        sort = new DisabledSort();
-//
-//        result = service.getAllEntities();
-//
-//        Assertions.assertEquals(30, IterableUtils.size(result));
+        // final Sort sort;
+        // final Flux<PersistentExampleEntity> result;
+        //
+        // sort = new DisabledSort();
+        //
+        // result = service.getAllEntities();
+        //
+        // Assertions.assertEquals(30, IterableUtils.size(result));
     }
 
 }

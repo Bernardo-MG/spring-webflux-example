@@ -31,8 +31,7 @@ import reactor.core.publisher.Flux;
 /**
  * Service for the example entity domain.
  * <p>
- * This is a domain service just to allow the endpoints querying the entities
- * they are asked for.
+ * This is a domain service just to allow the endpoints querying the entities they are asked for.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */

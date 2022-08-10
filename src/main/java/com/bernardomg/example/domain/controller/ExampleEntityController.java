@@ -44,25 +44,26 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/entity")
 public class ExampleEntityController {
 
-	/**
-	 * Example entity service.
-	 */
-	private final ExampleEntityService exampleEntityService;
+    /**
+     * Example entity service.
+     */
+    private final ExampleEntityService exampleEntityService;
 
-	/**
-	 * Constructs a controller with the specified dependencies.
-	 *
-	 * @param service example entity service
-	 */
-	public ExampleEntityController(final ExampleEntityService service) {
-		super();
+    /**
+     * Constructs a controller with the specified dependencies.
+     *
+     * @param service
+     *            example entity service
+     */
+    public ExampleEntityController(final ExampleEntityService service) {
+        super();
 
-		exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
-	}
+        exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
+    }
 
-	@GetMapping
-	public Flux<? extends ExampleEntity> read() {
+    @GetMapping
+    public Flux<? extends ExampleEntity> read() {
         return exampleEntityService.getAllEntities();
-	}
+    }
 
 }
