@@ -13,7 +13,7 @@ import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
 @IntegrationTest
-@DisplayName("Reading all the entities")
+@DisplayName("Default example entity service - Reading all the entities")
 public class ITDefaultExampleEntityServiceGetAll {
 
     @Autowired
