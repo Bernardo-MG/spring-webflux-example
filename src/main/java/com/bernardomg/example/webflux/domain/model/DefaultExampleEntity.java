@@ -22,11 +22,28 @@
  * SOFTWARE.
  */
 
-/**
- * Services.
- * <p>
- * While in the MVC architecture all the logic seems to be contained inside the controllers, using an additional layer
- * of services helps to isolate all the important logic in the application.
- */
+package com.bernardomg.example.webflux.domain.model;
 
-package com.bernardomg.example.domain.service;
+import lombok.Data;
+
+/**
+ * Default entity for the example application.
+ *
+ * @author Bernardo Mart&iacute;nez Garrido
+ */
+@Data
+public class DefaultExampleEntity implements ExampleEntity {
+
+    /**
+     * Entity's ID.
+     */
+    private Integer id   = -1;
+
+    /**
+     * Name of the entity.
+     * <p>
+     * This is to have additional data apart from the id, to be used on the tests.
+     */
+    private String  name = "";
+
+}

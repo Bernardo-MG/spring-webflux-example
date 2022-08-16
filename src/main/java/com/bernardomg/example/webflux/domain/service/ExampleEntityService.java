@@ -22,48 +22,26 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.domain.controller;
+package com.bernardomg.example.webflux.domain.service;
 
-import java.util.Objects;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.bernardomg.example.domain.model.ExampleEntity;
-import com.bernardomg.example.domain.service.ExampleEntityService;
+import com.bernardomg.example.webflux.domain.model.ExampleEntity;
 
 import reactor.core.publisher.Flux;
 
 /**
- * Rest controller for the example entities.
+ * Service for the example entity domain.
+ * <p>
+ * This is a domain service just to allow the endpoints querying the entities they are asked for.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-@RestController
-@RequestMapping("/entity")
-public class ExampleEntityController {
+public interface ExampleEntityService {
 
     /**
-     * Example entity service.
-     */
-    private final ExampleEntityService exampleEntityService;
-
-    /**
-     * Constructs a controller with the specified dependencies.
+     * Returns all the entities.
      *
-     * @param service
-     *            example entity service
+     * @return the persisted entities
      */
-    public ExampleEntityController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
-    }
-
-    @GetMapping
-    public Flux<? extends ExampleEntity> read() {
-        return exampleEntityService.getAllEntities();
-    }
+    public Flux<? extends ExampleEntity> getAllEntities();
 
 }

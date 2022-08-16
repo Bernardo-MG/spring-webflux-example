@@ -22,26 +22,52 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.domain.service;
+package com.bernardomg.example.webflux.domain.service;
 
-import com.bernardomg.example.domain.model.ExampleEntity;
+import java.util.Arrays;
+
+import org.springframework.stereotype.Service;
+
+import com.bernardomg.example.webflux.domain.model.DefaultExampleEntity;
+import com.bernardomg.example.webflux.domain.model.ExampleEntity;
 
 import reactor.core.publisher.Flux;
 
 /**
- * Service for the example entity domain.
- * <p>
- * This is a domain service just to allow the endpoints querying the entities they are asked for.
+ * Default implementation of the example entity service.
  *
  * @author Bernardo Mart&iacute;nez Garrido
+ *
  */
-public interface ExampleEntityService {
+@Service
+public class DefaultExampleEntityService implements ExampleEntityService {
 
     /**
-     * Returns all the entities from the DB.
-     *
-     * @return the persisted entities
+     * Constructs an entities service with the specified repository.
      */
-    public Flux<? extends ExampleEntity> getAllEntities();
+    public DefaultExampleEntityService() {
+        super();
+    }
+
+    @Override
+    public final Flux<ExampleEntity> getAllEntities() {
+        final ExampleEntity entity1;
+        final ExampleEntity entity2;
+        final ExampleEntity entity3;
+
+        entity1 = new DefaultExampleEntity();
+        entity1.setId(1);
+        entity1.setName("Entity 1");
+
+        entity2 = new DefaultExampleEntity();
+        entity2.setId(2);
+        entity2.setName("Entity 2");
+
+        entity3 = new DefaultExampleEntity();
+        entity3.setId(3);
+        entity3.setName("Entity 3");
+
+        return Flux.fromIterable(Arrays.asList(entity1, entity2, entity3));
+    }
 
 }

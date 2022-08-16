@@ -22,52 +22,45 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.domain.service;
-
-import java.util.Arrays;
-
-import org.springframework.stereotype.Service;
-
-import com.bernardomg.example.domain.model.DefaultExampleEntity;
-import com.bernardomg.example.domain.model.ExampleEntity;
-
-import reactor.core.publisher.Flux;
+package com.bernardomg.example.webflux.domain.model;
 
 /**
- * Default implementation of the example entity service.
+ * A simple entity to be used as an example.
  *
  * @author Bernardo Mart&iacute;nez Garrido
- *
  */
-@Service
-public class DefaultExampleEntityService implements ExampleEntityService {
+public interface ExampleEntity {
 
     /**
-     * Constructs an entities service with the specified repository.
+     * Returns the identifier assigned to this entity.
+     * <p>
+     * If no identifier has been assigned yet, then the value is expected to be {@code null} or lower than zero.
+     *
+     * @return the entity's identifier
      */
-    public DefaultExampleEntityService() {
-        super();
-    }
+    public Integer getId();
 
-    @Override
-    public final Flux<ExampleEntity> getAllEntities() {
-        final ExampleEntity entity1;
-        final ExampleEntity entity2;
-        final ExampleEntity entity3;
+    /**
+     * Returns the name of the entity.
+     *
+     * @return the entity's name
+     */
+    public String getName();
 
-        entity1 = new DefaultExampleEntity();
-        entity1.setId(1);
-        entity1.setName("Entity 1");
+    /**
+     * Sets the identifier assigned to this entity.
+     *
+     * @param identifier
+     *            the identifier for the entity
+     */
+    public void setId(final Integer identifier);
 
-        entity2 = new DefaultExampleEntity();
-        entity2.setId(2);
-        entity2.setName("Entity 2");
-
-        entity3 = new DefaultExampleEntity();
-        entity3.setId(3);
-        entity3.setName("Entity 3");
-
-        return Flux.fromIterable(Arrays.asList(entity1, entity2, entity3));
-    }
+    /**
+     * Changes the name of the entity.
+     *
+     * @param name
+     *            the name to set on the entity
+     */
+    public void setName(final String name);
 
 }

@@ -22,45 +22,52 @@
  * SOFTWARE.
  */
 
-package com.bernardomg.example.domain.model;
+package com.bernardomg.example.webflux.domain.controller;
+
+import java.util.Objects;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bernardomg.example.webflux.domain.model.ExampleEntity;
+import com.bernardomg.example.webflux.domain.service.ExampleEntityService;
+
+import reactor.core.publisher.Flux;
 
 /**
- * A simple entity to be used as an example.
+ * Rest controller for the example entities. Works with flux streams.
  *
  * @author Bernardo Mart&iacute;nez Garrido
  */
-public interface ExampleEntity {
+@RestController
+@RequestMapping("/entity")
+public class ExampleEntityController {
 
     /**
-     * Returns the identifier assigned to this entity.
-     * <p>
-     * If no identifier has been assigned yet, then the value is expected to be {@code null} or lower than zero.
-     *
-     * @return the entity's identifier
+     * Example entity service.
      */
-    public Integer getId();
+    private final ExampleEntityService exampleEntityService;
 
     /**
-     * Returns the name of the entity.
+     * Constructs a controller with the specified dependencies.
      *
-     * @return the entity's name
+     * @param service
+     *            example entity service
      */
-    public String getName();
+    public ExampleEntityController(final ExampleEntityService service) {
+        super();
+
+        exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
+    }
 
     /**
-     * Sets the identifier assigned to this entity.
-     *
-     * @param identifier
-     *            the identifier for the entity
+     * Read operation for a flux of entities.
+     * @return flux of entities
      */
-    public void setId(final Integer identifier);
-
-    /**
-     * Changes the name of the entity.
-     *
-     * @param name
-     *            the name to set on the entity
-     */
-    public void setName(final String name);
+    @GetMapping
+    public Flux<? extends ExampleEntity> read() {
+        return exampleEntityService.getAllEntities();
+    }
 
 }
