@@ -357,6 +357,12 @@
             </exclusion>
          </exclusions>
       </dependency>
+      <dependency>
+         <!-- Reactor test -->
+         <groupId>io.projectreactor</groupId>
+         <artifactId>reactor-test</artifactId>
+         <scope>test</scope>
+      </dependency>
    </dependencies>
 
    <!-- ********************************************** -->

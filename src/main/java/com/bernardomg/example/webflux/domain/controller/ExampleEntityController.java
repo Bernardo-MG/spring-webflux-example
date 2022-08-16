@@ -63,11 +63,12 @@ public class ExampleEntityController {
 
     /**
      * Read operation for a flux of entities.
+     *
      * @return flux of entities
      */
     @GetMapping
     public Flux<? extends ExampleEntity> read() {
-        return exampleEntityService.getAllEntities();
+        return exampleEntityService.getAll();
     }
 
 }

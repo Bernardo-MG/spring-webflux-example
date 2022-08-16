@@ -42,6 +42,6 @@ public interface ExampleEntityService {
      *
      * @return the persisted entities
      */
-    public Flux<? extends ExampleEntity> getAllEntities();
+    public Flux<? extends ExampleEntity> getAll();
 
 }

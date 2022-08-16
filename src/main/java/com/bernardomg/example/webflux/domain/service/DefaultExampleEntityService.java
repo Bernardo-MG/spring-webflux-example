@@ -50,7 +50,7 @@ public class DefaultExampleEntityService implements ExampleEntityService {
     }
 
     @Override
-    public final Flux<ExampleEntity> getAllEntities() {
+    public final Flux<ExampleEntity> getAll() {
         final ExampleEntity entity1;
         final ExampleEntity entity2;
         final ExampleEntity entity3;
