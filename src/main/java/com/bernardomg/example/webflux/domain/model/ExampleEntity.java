@@ -53,7 +53,7 @@ public interface ExampleEntity {
      * @param identifier
      *            the identifier for the entity
      */
-    public void setId(final Integer identifier);
+    public void setId(Integer identifier);
 
     /**
      * Changes the name of the entity.
@@ -61,6 +61,6 @@ public interface ExampleEntity {
      * @param name
      *            the name to set on the entity
      */
-    public void setName(final String name);
+    public void setName(String name);
 
 }
