@@ -20,6 +20,7 @@
          <bottomNav>
             <menu>General Info</menu>
             <menu>Code</menu>
+            <menu>Releases</menu>
          </bottomNav>
          <iconNav>
             <menu>Icons</menu>
@@ -49,6 +50,9 @@
          <item name="Issues" href="${project.issueManagement.url}">
             <description>${project.issueManagement.system}</description>
          </item>
+      </menu>
+      <menu name="Releases" inherit="bottom">
+         <item name="Github" href="${githubArtifactURL}" />
       </menu>
       <menu name="Icons" inherit="bottom">
          <item name="Github" img="fab fa-github" href="${project.scm.url}" />
