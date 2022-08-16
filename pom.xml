@@ -178,6 +178,7 @@
       <!-- ============================================== -->
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.version>5.3.22</spring.version>
+      <springdoc.version>1.6.8</springdoc.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -231,7 +232,6 @@
          <!-- Spring Boot Starter: Web -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
-         <version>${spring.boot.version}</version>
          <exclusions>
             <exclusion>
                <groupId>ch.qos.logback</groupId>
@@ -269,6 +269,14 @@
          <artifactId>spring-boot-devtools</artifactId>
          <scope>runtime</scope>
          <optional>true</optional>
+      </dependency>
+      <!-- ============================================== -->
+      <!-- ================ API DOCS ==================== -->
+      <!-- ============================================== -->
+      <dependency>
+         <groupId>org.springdoc</groupId>
+         <artifactId>springdoc-openapi-ui</artifactId>
+         <version>${springdoc.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== LOMBOK ==================== -->
