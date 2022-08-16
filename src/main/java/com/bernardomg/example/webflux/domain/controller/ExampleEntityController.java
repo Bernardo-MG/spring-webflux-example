@@ -24,8 +24,6 @@
 
 package com.bernardomg.example.webflux.domain.controller;
 
-import java.util.Objects;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bernardomg.example.webflux.domain.model.ExampleEntity;
 import com.bernardomg.example.webflux.domain.service.ExampleEntityService;
 
+import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
 
 /**
@@ -42,24 +41,13 @@ import reactor.core.publisher.Flux;
  */
 @RestController
 @RequestMapping("/entity")
+@AllArgsConstructor
 public class ExampleEntityController {
 
     /**
      * Example entity service.
      */
     private final ExampleEntityService exampleEntityService;
-
-    /**
-     * Constructs a controller with the specified dependencies.
-     *
-     * @param service
-     *            example entity service
-     */
-    public ExampleEntityController(final ExampleEntityService service) {
-        super();
-
-        exampleEntityService = Objects.requireNonNull(service, "Received a null pointer as service");
-    }
 
     /**
      * Read operation for a flux of entities.
