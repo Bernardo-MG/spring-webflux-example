@@ -1,6 +1,12 @@
 # Spring WebFlux Example
 
-Example setting up Spring WebFlux.
+Example setting up Spring WebFlux. Just run as any Spring boot app:
+
+```
+mvn spring-boot:run
+```
+
+And then query at [http://localhost:8080/entity](http://localhost:8080/entity), or use the [Swagger UI](http://localhost:8080/swagger-ui.html).
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -9,6 +15,8 @@ Example setting up Spring WebFlux.
 [![Development javadocs](https://img.shields.io/badge/javadocs-develop-blue.svg)][javadoc-develop]
 
 ## Features
+
+- Webflux REST controller
 
 ## Documentation
 
@@ -41,12 +49,6 @@ mvn spring-boot:run
 ```
 
 Then you can query at [http://localhost:8080/entity](http://localhost:8080/entity), or use the [Swagger UI](http://localhost:8080/swagger-ui.html).
-
-### Docker image
-
-```
-docker-compose -f docker/docker-compose.yml --project-name webflux-example up
-```
 
 ## Collaborate
 
