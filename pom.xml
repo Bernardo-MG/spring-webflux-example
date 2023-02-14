@@ -178,7 +178,6 @@
       <!-- ============================================== -->
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.version>5.3.22</spring.version>
-      <springdoc.version>1.6.9</springdoc.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -253,14 +252,6 @@
          <artifactId>spring-boot-devtools</artifactId>
          <scope>runtime</scope>
          <optional>true</optional>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ API DOCS ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <groupId>org.springdoc</groupId>
-         <artifactId>springdoc-openapi-ui</artifactId>
-         <version>${springdoc.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== LOMBOK ==================== -->
@@ -414,6 +405,15 @@
                   </goals>
                </execution>
             </executions>
+         </plugin>
+         <plugin>
+            <!-- Failsafe -->
+            <!-- Runs integration tests. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+               <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+            </configuration>
          </plugin>
       </plugins>
    </build>
