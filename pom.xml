@@ -19,7 +19,7 @@
 
    <groupId>com.bernardomg.example</groupId>
    <artifactId>spring-webflux-example</artifactId>
-   <version>1.0.0</version>
+   <version>1.1.0-SNAPSHOT</version>
    <packaging>war</packaging>
 
    <name>Spring WebFlux Example</name>
