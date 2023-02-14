@@ -40,16 +40,6 @@ $ mvn verify site
 
 The verify phase is required, otherwise some of the reports won't be generated.
 
-## Usage
-
-To run the project locally use the following Maven command:
-
-```
-mvn spring-boot:run
-```
-
-Then you can query at [http://localhost:8080/entity](http://localhost:8080/entity), or use the [Swagger UI](http://localhost:8080/swagger-ui.html).
-
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
