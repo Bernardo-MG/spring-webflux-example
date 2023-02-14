@@ -406,6 +406,15 @@
                </execution>
             </executions>
          </plugin>
+         <plugin>
+            <!-- Failsafe -->
+            <!-- Runs integration tests. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+               <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+            </configuration>
+         </plugin>
       </plugins>
    </build>
 
