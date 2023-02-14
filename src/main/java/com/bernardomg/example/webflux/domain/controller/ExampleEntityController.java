@@ -40,14 +40,14 @@ import reactor.core.publisher.Flux;
  * @author Bernardo Mart&iacute;nez Garrido
  */
 @RestController
-@RequestMapping("/entity")
+@RequestMapping("/annotation/entity")
 @AllArgsConstructor
 public class ExampleEntityController {
 
     /**
      * Example entity service.
      */
-    private final ExampleEntityService exampleEntityService;
+    private final ExampleEntityService service;
 
     /**
      * Read operation for a flux of entities.
@@ -56,7 +56,7 @@ public class ExampleEntityController {
      */
     @GetMapping
     public Flux<? extends ExampleEntity> read() {
-        return exampleEntityService.getAll();
+        return service.getAll();
     }
 
 }

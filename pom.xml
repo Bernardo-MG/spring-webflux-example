@@ -10,7 +10,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.5.2</version>
+      <version>1.5.3</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -19,8 +19,8 @@
 
    <groupId>com.bernardomg.example</groupId>
    <artifactId>spring-webflux-example</artifactId>
-   <version>1.0.0</version>
-   <packaging>war</packaging>
+   <version>1.0.1</version>
+   <packaging>jar</packaging>
 
    <name>Spring WebFlux Example</name>
    <description>Example setting up Spring WebFlux.</description>
@@ -178,7 +178,6 @@
       <!-- ============================================== -->
       <spring.boot.version>2.7.2</spring.boot.version>
       <spring.version>5.3.22</spring.version>
-      <springdoc.version>1.6.9</springdoc.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -228,21 +227,6 @@
       <!-- =============== SPRING BOOT ================== -->
       <!-- ============================================== -->
       <dependency>
-         <!-- Spring Boot Starter: Web -->
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-web</artifactId>
-         <exclusions>
-            <exclusion>
-               <groupId>ch.qos.logback</groupId>
-               <artifactId>logback-classic</artifactId>
-            </exclusion>
-            <exclusion>
-               <groupId>org.apache.logging.log4j</groupId>
-               <artifactId>log4j-to-slf4j</artifactId>
-            </exclusion>
-         </exclusions>
-      </dependency>
-      <dependency>
          <!-- Spring Boot Starter: Web Flux -->
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-webflux</artifactId>
@@ -268,14 +252,6 @@
          <artifactId>spring-boot-devtools</artifactId>
          <scope>runtime</scope>
          <optional>true</optional>
-      </dependency>
-      <!-- ============================================== -->
-      <!-- ================ API DOCS ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <groupId>org.springdoc</groupId>
-         <artifactId>springdoc-openapi-ui</artifactId>
-         <version>${springdoc.version}</version>
       </dependency>
       <!-- ============================================== -->
       <!-- ================== LOMBOK ==================== -->
@@ -417,12 +393,6 @@
             </dependencies>
          </plugin>
          <plugin>
-            <!-- WAR -->
-            <!-- Generates the WAR package. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-         </plugin>
-         <plugin>
             <!-- Spring Boot -->
             <!-- Takes care of running Spring Boot application -->
             <groupId>org.springframework.boot</groupId>
@@ -435,6 +405,15 @@
                   </goals>
                </execution>
             </executions>
+         </plugin>
+         <plugin>
+            <!-- Failsafe -->
+            <!-- Runs integration tests. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <configuration>
+               <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+            </configuration>
          </plugin>
       </plugins>
    </build>

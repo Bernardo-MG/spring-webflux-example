@@ -10,5 +10,13 @@
                 First release of the example.
             </action>
         </release>
+        <release version="1.0.1" date="2023-02-14" description="Functional endpoint">
+            <action dev="bmg" type="fix">
+                Removed MVC dependency.
+            </action>
+            <action dev="bmg" type="add">
+                Added functional endpoint.
+            </action>
+        </release>
     </body>
 </document>

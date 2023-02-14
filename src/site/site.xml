@@ -31,7 +31,6 @@
    <body>
       <menu name="General Info" inherit="top">
          <item name="Usage" href="./usage.html" />
-         <item name="REST API Docs" href="./restapi.html" />
          <item name="Changes Log" href="./changes-report.html" />
          <item name="JavaDocs" href="./apidocs/" />
       </menu>
@@ -55,7 +54,7 @@
          <item name="Github" href="${githubArtifactURL}" />
       </menu>
       <menu name="Icons" inherit="bottom">
-         <item name="Github" img="fab fa-github" href="${project.scm.url}" />
+         <item name="Github" img="fa-brands fa-github" href="${project.scm.url}" />
       </menu>
    </body>
 

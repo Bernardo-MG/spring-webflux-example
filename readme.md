@@ -6,7 +6,12 @@ Example setting up Spring WebFlux. Just run as any Spring boot app:
 mvn spring-boot:run
 ```
 
-And then query at [http://localhost:8080/entity](http://localhost:8080/entity), or use the [Swagger UI](http://localhost:8080/swagger-ui.html).
+Then there is an endpoint for each type of configuration.
+
+| Configuration        | URL                                     |
+|----------------------|-----------------------------------------|
+| Annotated controller | http://localhost:8080/annotation/entity |
+| Functional endpoint  | http://localhost:8080/functional/entity |
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -17,6 +22,7 @@ And then query at [http://localhost:8080/entity](http://localhost:8080/entity), 
 ## Features
 
 - Webflux REST controller
+- Webflux functional endpoint
 
 ## Documentation
 
@@ -40,16 +46,6 @@ $ mvn verify site
 
 The verify phase is required, otherwise some of the reports won't be generated.
 
-## Usage
-
-To run the project locally use the following Maven command:
-
-```
-mvn spring-boot:run
-```
-
-Then you can query at [http://localhost:8080/entity](http://localhost:8080/entity), or use the [Swagger UI](http://localhost:8080/swagger-ui.html).
-
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
@@ -70,9 +66,9 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 The project has been released under the [MIT License][license].
 
 [issues]: https://github.com/bernardo-mg/spring-webflux-example/issues
-[javadoc-develop]: https:///spring-webflux-example/apidocs
-[javadoc-release]: https:///spring-webflux-example/apidocs
+[javadoc-develop]: https://docs.bernardomg.com/development/maven/spring-webflux-example/apidocs
+[javadoc-release]: https://docs.bernardomg.com/maven/spring-webflux-example/apidocs
 [license]: https://www.opensource.org/licenses/mit-license.php
 [scm]: https://github.com/bernardo-mg/spring-webflux-example
-[site-develop]: https:///spring-webflux-example
-[site-release]: https:///spring-webflux-example
+[site-develop]: https://docs.bernardomg.com/development/maven/spring-webflux-example
+[site-release]: https://docs.bernardomg.com/maven/spring-webflux-example
