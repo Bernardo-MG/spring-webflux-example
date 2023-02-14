@@ -31,7 +31,6 @@
    <body>
       <menu name="General Info" inherit="top">
          <item name="Usage" href="./usage.html" />
-         <item name="REST API Docs" href="./restapi.html" />
          <item name="Changes Log" href="./changes-report.html" />
          <item name="JavaDocs" href="./apidocs/" />
       </menu>
