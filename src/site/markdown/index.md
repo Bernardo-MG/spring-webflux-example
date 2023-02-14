@@ -11,7 +11,7 @@ Then there is an endpoint for each type of configuration.
 | Configuration        | URL                                     |
 |----------------------|-----------------------------------------|
 | Annotated controller | http://localhost:8080/annotation/entity |
-| Functional endpoint  | http://localhost:8080/annotation/entity |
+| Functional endpoint  | http://localhost:8080/functional/entity |
 
 ## Features
 

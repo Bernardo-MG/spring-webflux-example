@@ -27,7 +27,7 @@ public class FunctionalWebConfig {
 
     @Bean
     public RouterFunction<ServerResponse> getExampleEntities() {
-        return RouterFunctions.route(RequestPredicates.GET("/reactive/entity"), req -> ServerResponse.ok()
+        return RouterFunctions.route(RequestPredicates.GET("/functional/entity"), req -> ServerResponse.ok()
             .body(service.getAll(), ExampleEntity.class));
     }
 
