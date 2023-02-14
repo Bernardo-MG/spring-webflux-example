@@ -11,7 +11,7 @@ Then there is an endpoint for each type of configuration.
 | Configuration        | URL                                     |
 |----------------------|-----------------------------------------|
 | Annotated controller | http://localhost:8080/annotation/entity |
-| Functional endpoint  | http://localhost:8080/annotation/entity |
+| Functional endpoint  | http://localhost:8080/functional/entity |
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
