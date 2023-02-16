@@ -31,6 +31,7 @@ import org.springframework.stereotype.Service;
 import com.bernardomg.example.webflux.domain.model.DefaultExampleEntity;
 import com.bernardomg.example.webflux.domain.model.ExampleEntity;
 
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 
 /**
@@ -40,6 +41,7 @@ import reactor.core.publisher.Flux;
  *
  */
 @Service
+@Slf4j
 public class DefaultExampleEntityService implements ExampleEntityService {
 
     /**
@@ -54,6 +56,8 @@ public class DefaultExampleEntityService implements ExampleEntityService {
         final ExampleEntity entity1;
         final ExampleEntity entity2;
         final ExampleEntity entity3;
+        
+        log.debug("Getting all entities");
 
         entity1 = new DefaultExampleEntity();
         entity1.setId(1);
